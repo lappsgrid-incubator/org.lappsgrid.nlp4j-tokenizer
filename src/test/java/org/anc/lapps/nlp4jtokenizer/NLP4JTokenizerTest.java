@@ -76,12 +76,12 @@ public class NLP4JTokenizerTest
     @Test
     public void testInvalidDiscriminator()
     {
+        System.out.println("NLP4JTokenizerTest.testInvalidDiscriminator");
         Data<String> data = new Data<>(Discriminators.Uri.QUERY, "");
         String json = nlp4JTokenizer.execute(data.asJson());
         assertNotNull("No JSON returned from the service", json);
         data = Serializer.parse(json, Data.class);
         assertEquals("Invalid discriminator returned: " + data.getDiscriminator(), Discriminators.Uri.ERROR, data.getDiscriminator());
-        System.out.println(data.getPayload());
     }
 
     @Test

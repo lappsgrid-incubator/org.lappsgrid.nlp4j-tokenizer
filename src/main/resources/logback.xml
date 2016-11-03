@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<configuration debug="false">
+	<appender name="FILEOUT" class="ch.qos.logback.core.FileAppender">
+		<encoder>
+			<pattern>%date %-5level [%class{0}.%M:%line] %msg%n</pattern>
+		</encoder>
+		<append>true</append>
+		<file>errors.log</file>
+	</appender>
+
+	<root level="error">
+		<appender-ref ref="FILEOUT" />
+	</root>
+</configuration>

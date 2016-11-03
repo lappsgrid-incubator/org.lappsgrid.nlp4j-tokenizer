@@ -1,0 +1,12 @@
+2016-11-03 00:00:55,499 ERROR [NLP4JTokenizer.execute:112] {
+  "discriminator" : "http://vocab.lappsgrid.org/ns/error",
+  "payload" : "Invalid discriminator.\nExpected http://vocab.lappsgrid.org/ns/media/text\nFound http://vocab.lappsgrid.org/ns/action/query"
+}
+2016-11-03 00:06:08,225 ERROR [NLP4JTokenizer.execute:113] {
+  "discriminator" : "http://vocab.lappsgrid.org/ns/error",
+  "payload" : "Invalid discriminator.\nExpected http://vocab.lappsgrid.org/ns/media/text\nFound http://vocab.lappsgrid.org/ns/action/query"
+}
+2016-11-03 00:08:11,564 ERROR [NLP4JTokenizer.execute:112] {
+  "discriminator" : "http://vocab.lappsgrid.org/ns/error",
+  "payload" : "Invalid discriminator.\nExpected http://vocab.lappsgrid.org/ns/media/text\nFound http://vocab.lappsgrid.org/ns/action/query"
+}
