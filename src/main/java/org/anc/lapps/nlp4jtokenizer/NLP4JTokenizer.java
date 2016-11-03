@@ -135,6 +135,8 @@ public class NLP4JTokenizer implements ProcessingService
 
             // Will track last seen position, to find index of tokens starting from that index
             int position = 0;
+            // Will track last processed tokenizer, to label them with their appropriate numbers
+            int tokNum = 1;
 
             for (List<Token> tokens : tokenizer.segmentize(inputStream)) {
                 for (Token token : tokens) {
@@ -143,7 +145,7 @@ public class NLP4JTokenizer implements ProcessingService
                     int beginning = inputString.indexOf(tokenString, position);
                     int ending = beginning + tokenString.length();
                     position = ending;
-                    Annotation ann = view.newAnnotation("tok1", Discriminators.Uri.TOKEN, beginning, ending);
+                    Annotation ann = view.newAnnotation("tok" + tokNum++, Discriminators.Uri.TOKEN, beginning, ending);
 
                 }
             }
