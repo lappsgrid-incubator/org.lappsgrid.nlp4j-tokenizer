@@ -10,3 +10,7 @@
   "discriminator" : "http://vocab.lappsgrid.org/ns/error",
   "payload" : "Invalid discriminator.\nExpected http://vocab.lappsgrid.org/ns/media/text\nFound http://vocab.lappsgrid.org/ns/action/query"
 }
+2016-12-09 15:59:32,515 ERROR [NLP4JTokenizer.execute:113] {
+  "discriminator" : "http://vocab.lappsgrid.org/ns/error",
+  "payload" : "Invalid discriminator.\nExpected http://vocab.lappsgrid.org/ns/media/text\nFound http://vocab.lappsgrid.org/ns/action/query"
+}

@@ -13,6 +13,7 @@ import org.lappsgrid.serialization.Serializer;
 import org.lappsgrid.serialization.lif.Annotation;
 import org.lappsgrid.serialization.lif.Container;
 import org.lappsgrid.serialization.lif.View;
+import org.lappsgrid.vocabulary.Features;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -136,17 +137,20 @@ public class NLP4JTokenizer implements ProcessingService
             // Will track last seen position, to find index of tokens starting from that index
             int position = 0;
             // Will track last processed tokenizer, to label them with their appropriate numbers
-            int tokNum = 1;
+            int tokNum = 0;
+
+            String tokenString;
+            int beginning;
+            int ending;
 
             for (List<Token> tokens : tokenizer.segmentize(inputStream)) {
                 for (Token token : tokens) {
-                    String tokenString = token.toString();
-
-                    int beginning = inputString.indexOf(tokenString, position);
-                    int ending = beginning + tokenString.length();
+                    tokenString = token.toString();
+                    beginning = inputString.indexOf(tokenString, position);
+                    ending = beginning + tokenString.length();
                     position = ending;
                     Annotation ann = view.newAnnotation("tok" + tokNum++, Discriminators.Uri.TOKEN, beginning, ending);
-
+                    ann.addFeature(Features.Token.WORD, tokenString);
                 }
             }
 
@@ -161,6 +165,8 @@ public class NLP4JTokenizer implements ProcessingService
                 logger.error(errorData);
                 return errorData;
             }
+
+            view.addContains(Discriminators.Uri.TOKEN, this.getClass().getName(), "nlp4j-tokenizer");
 
             Data returnData = new DataContainer(container);
             return returnData.asPrettyJson();

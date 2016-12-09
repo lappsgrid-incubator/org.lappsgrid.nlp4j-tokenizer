@@ -85,9 +85,9 @@ public class NLP4JTokenizerTest
     }
 
     @Test
-    public void testExecuteTrain()
+    public void testExecute()
     {
-        System.out.println("NLP4JTokenizerTest.testExecuteTrain");
+        System.out.println("NLP4JTokenizerTest.testExecute");
         StringBuilder exampleSentence = new StringBuilder("This is an example of a sentence to be tokenized.\n");
         exampleSentence.append("The tokenizer will tokenize this sentence, in such a way that the sentence will be ");
         exampleSentence.append("tokenized at the end. :)\nI am so happy about this tokenizer :D");
